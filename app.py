@@ -3,17 +3,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('home.html')
 
 @app.route('/admin')
 def admin():
     return render_template('admin.html')
 
-@app.route('/<name>')
-def user(name):
-    if name == 'admin':
-        return redirect(url_for('admin'))
-    return render_template('user.html', user_name="Nguyen Duc Nhat")
+@app.route('/<username>')
+def user(username):
+    return render_template('user.html')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 if __name__ == '__main__':
     app.run()
