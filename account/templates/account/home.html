@@ -1,0 +1,13 @@
+{% extends 'post/index.html' %}
+{% block content %}
+{% if usr.is_authenticated %}
+        <center>
+            <h1>Hello {{ usr }}</h1>
+        </center>
+    {% else %}
+        <center>
+            <h3><a href="{% url 'account:register' %}">Register</a></h3>
+            <h3><a href="{% url 'account:login' %}">Login</a></h3>
+        </center>
+    {% endif %}
+{% endblock %}

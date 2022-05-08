@@ -1,0 +1,18 @@
+{% extends 'account/base.html' %}
+{% block content %}
+    <form action="" class="form" method="POST">
+        {% csrf_token %}
+        <div class="header">Login</div>
+        {% for message in messages %}
+            <p id="message">{{ message }}</p>
+        {% endfor %}
+        <div class="input-group">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        <input class="btn-submit" type="submit" value="Sign In">
+        <span style="font-size: 0.75rem;margin-top: 10px">Don't have an account? <a href="{% url 'account:register' %}">Sign Up</a></span>
+    </form>
+{% endblock %}

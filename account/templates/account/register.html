@@ -1,0 +1,31 @@
+{% extends 'account/base.html' %}
+{% block content %}
+    <form action="" method="POST" class="form">
+        {% csrf_token %}
+        <div class="header">
+            Create Account
+        </div>
+        <div class="input-group">
+            {{ form.email }}
+        </div>
+        <div class="input-group">
+            {{ form.username }}
+        </div>
+        <div class="input-group">
+            {{ form.password1 }}
+        </div>
+        <div class="input-group">
+            {{ form.password2 }}
+        </div>
+        {{ form.errors }}
+        <input type="submit" class="btn-submit" value="Sign Up">
+        <span style="font-size: 0.75rem;margin-top: 10px;">Already have an account?<a href="{% url 'account:login' %}">Sign In</a></span>
+    </form>
+    <script type="text/javascript">
+        var form_fields=document.getElementsByTagName('input')
+        form_fields[1].placeholder='Email';
+        form_fields[2].placeholder='Username';
+        form_fields[3].placeholder='Password1';
+        form_fields[4].placeholder='Password2';
+    </script>
+{% endblock %}
