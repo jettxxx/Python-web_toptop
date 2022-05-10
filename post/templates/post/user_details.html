@@ -1,0 +1,17 @@
+{% extends 'post/index.html' %}
+{% block content %}
+    {% if usr.is_authenticated %}
+    <center>
+        {% for i in obj %}
+            {% if usr.username in i.root_user %}
+            <label for="">Title: {{ i.video_caption }}</label>
+                <br>
+                <label for="">Author: <a href="">{{ i.root_user }}</a></label>
+                <br>
+                <video src="{{ i.video_file.url }}" width="300" controls></video>
+                <br>
+            {% endif %}
+        {% endfor %}
+    </center>
+    {% endif %}
+{% endblock %}
