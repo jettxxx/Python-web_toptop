@@ -1,4 +1,20 @@
 {% extends 'post/index.html' %}
 {% block content %}
-
+    {% if usr.is_authenticated %}
+    <center>
+        {% for i in obj %}
+        <label for="">Title: {{ i.video_caption }}</label>
+            <br>
+            <label for="">Author: <a href="{% url 'post:user_details' i.id %}">{{ i.root_user }}</a></label>
+            <br>
+            <video src="{{ i.video_file.url }}" width="300" controls></video>
+            <br>
+        {% endfor %}
+    </center>
+    {% else %}
+        <center>
+                 <h3><a href="{% url 'account:register' %}">Register</a></h3>
+                  <h3><a href="{% url 'account:login' %}">Login</a></h3>
+        </center>
+    {% endif %}
 {% endblock %}

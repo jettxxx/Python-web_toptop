@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'post/index.html' %}
+{% block content %}
+    {% if mess %}
+        <h1>{{ mess }}</h1>
+        <h2>Go Back Post: <a href="{% url 'post:post' %}">List Post</a></h2>
+    {% endif %}
+{% endblock %}

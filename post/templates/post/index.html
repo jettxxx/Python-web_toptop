@@ -8,14 +8,14 @@
     <title>Document</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'post/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <div class="navbar">
 		<div class="container">
 			<a href="{% url 'post:post' %}">Home</a>
-		  	<a href="{% url 'post:create' %}">New post</a>
-            <a href="#">Link</a>
             {% if usr.is_authenticated %}
+		  	<a href="{% url 'post:create' %}">New post</a>
                 <a href="{% url 'account:logout' %}" class="right">Logout</a>
             {% endif %}
 		</div>

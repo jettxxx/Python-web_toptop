@@ -1,17 +1,18 @@
 {% extends 'post/index.html' %}
 {% block content %}
-    {% if usr.is_authenticated %}
     <center>
         {% for i in obj %}
-            {% if usr.username in i.root_user %}
             <label for="">Title: {{ i.video_caption }}</label>
-                <br>
-                <label for="">Author: <a href="">{{ i.root_user }}</a></label>
-                <br>
-                <video src="{{ i.video_file.url }}" width="300" controls></video>
-                <br>
-            {% endif %}
+            <br>
+            <label for="">Author: <a href="{% url 'post:user_details' i.id %}">{{ i.root_user }}</a></label>
+            <br>
+            <video src="{{ i.video_file.url }}" width="300" controls></video>
+            <br>
+            <label>Video URL</label>
+            <p>{{ i.video_url }}</p>
+            <br>
+            <label>Video tags</label>
+            <p>{{ i.video_tags }}</p>
         {% endfor %}
     </center>
-    {% endif %}
 {% endblock %}
