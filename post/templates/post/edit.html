@@ -1,0 +1,28 @@
+{% extends 'post/index.html' %}
+{% block content %}
+    <div class="container">
+        <div class="col-sm-6">
+            <form action="{% url 'post:updatePost' post.id %}" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="">Title</label>
+                    <input type="text" class="form-control" value="{{ post.video_caption}}" name="video_caption">
+                </div>
+                <div class="form-group">
+                    <label for="">Video Url</label>
+                    <input type="text" class="form-control" value="{{ post.video_url}}" name="video_url">
+                </div>
+                <div class="form-group">
+                    <label for="">Video Tag</label>
+                    <input type="text" class="form-control" value="{{ post.video_tags}}" name="video_tag">
+                </div>
+{#                <div class="form-group">#}
+{#                    <label for="">Video</label>#}
+{#                    <input type="file" class="form-control" name="video_file">#}
+{#                </div>#}
+                <button type="submit" class="btn btn-dark">Update</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

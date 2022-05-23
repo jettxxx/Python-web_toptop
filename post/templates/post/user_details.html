@@ -6,8 +6,8 @@
             <br>
             <div class="container">
                 <video src="{{ i.video_file.url }}" width="1200" height="500" controls></video>
-                <h5 class="text-left">Title: {{ i.video_caption }}</label>
-                <h5 class="text-left">Author: <a href="{% url 'post:user_details' i.id %}">{{ i.root_user }}</a></h5>
+                <h5 class="text-left">Title: {{ i.video_caption }}</h5>
+                <h5 class="text-left">Author: {{ i.root_user }}</h5>
                 <h5 class="text-left">Video URL: {{ i.video_url }}</h5>
                 <h5 class="text-left">Video tags: {{i.video_tags}}</h5>
                 
