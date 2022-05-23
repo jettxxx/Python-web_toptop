@@ -1,18 +1,17 @@
 {% extends 'post/index.html' %}
 {% block content %}
+    
     <center>
         {% for i in obj %}
-            <label for="">Title: {{ i.video_caption }}</label>
             <br>
-            <label for="">Author: <a href="{% url 'post:user_details' i.id %}">{{ i.root_user }}</a></label>
-            <br>
-            <video src="{{ i.video_file.url }}" width="300" controls></video>
-            <br>
-            <label>Video URL</label>
-            <p>{{ i.video_url }}</p>
-            <br>
-            <label>Video tags</label>
-            <p>{{ i.video_tags }}</p>
+            <div class="container">
+                <video src="{{ i.video_file.url }}" width="1200" height="500" controls></video>
+                <h5 class="text-left">Title: {{ i.video_caption }}</label>
+                <h5 class="text-left">Author: <a href="{% url 'post:user_details' i.id %}">{{ i.root_user }}</a></h5>
+                <h5 class="text-left">Video URL: {{ i.video_url }}</h5>
+                <h5 class="text-left">Video tags: {{i.video_tags}}</h5>
+                
+            </div>
         {% endfor %}
     </center>
 {% endblock %}

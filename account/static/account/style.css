@@ -36,8 +36,8 @@ body {
 	justify-content: center;
 	flex-direction: column;
 	padding: 50px;
-	box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-	0 10px 10px rgba(0,0,0,0.22);
+	/* box-shadow: 0 14px 28px rgba(0,0,0,0.25),
+	0 10px 10px rgba(0,0,0,0.22); */
 	border-radius: 15px;
 }
 
@@ -84,7 +84,8 @@ input[type=submit] {
 	border-radius: 15px;
 	outline: none;
 	border: none;
-	background: #27ae60;
+	/* background: #27ae60; */
+	background: black;
 	color: #fff;
 	font-size: 1.2rem;
 	transition: all .5s

@@ -1,5 +1,6 @@
+from turtle import pos
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from post.models import *
 from .forms import post_Form
 
@@ -49,3 +50,19 @@ def getPost(request):
             return render(request, 'post/success.html', context)
     else:
         return HttpResponse("Wrong!")
+
+def deletePost(request,pk):
+    post=Post.objects.get(id=pk)
+    post.delete()
+    return redirect('/')
+
+def updatePost(request,pk):
+    p=Post.objects.get(id=pk)
+
+    print(p)
+    # pF=post_Form(instance=p)
+    # content={
+    #     'pF':pF
+    # }
+    # return render(request,'post/update.html',pF)
+    return HttpResponse("Wrong!")
