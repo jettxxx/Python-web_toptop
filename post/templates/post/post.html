@@ -10,7 +10,7 @@
                 <h5 class="text-left">Title: {{ i.video_caption }}</h5>
                 <h5 for="" class="text-left">Author: <a href="{% url 'post:user_details' i.id %}">{{ i.root_user }}</a></label>
                 <div>
-                    {% if usr.is_authenticated %}
+                    {% if i.root_user == usr %}
                         <span><a href="{% url 'post:deletePost' i.id %}" class="btn btn-dark" onclick="return confirm('Delete Post?');" name="deleteBtn">Delete</a><span>
                     {% endif %}
                     {% comment %} <span><a href="{% url 'post:updatePost' i.id %}" class="btn btn-dark" name="updateBtn">Update</a><span> {% endcomment %}
